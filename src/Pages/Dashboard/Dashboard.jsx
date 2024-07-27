@@ -44,17 +44,7 @@ function Dashboard() {
     }, []);
 
 
-    useEffect(() => {
-        axios.get('/api/employees')
-            .then(response => {setEmployees(response.data);
-                console.log(response)
-            })
-           
-            .catch(error => {
-                console.error('There was an error fetching the employees!', error);
-            });
-            
-    }, []);
+   
 
     return (
         <div>
@@ -147,11 +137,11 @@ function Dashboard() {
                         <tbody>
                             {employees.map(employee => (
                                 <tr key={employee.id}>
-                                    <td>{employee.id}</td>
-                                    <td>{employee.name}</td>
-                                    <td>{employee.role}</td>
-                                    <td>{employee.checkIn}</td>
-                                    <td>{employee.checkOut}</td>
+                                    <td>id</td>
+                                    <td>name</td>
+                                    <td>role</td>
+                                    <td>9.00</td>
+                                    <td>5.00</td>
                                     <td><img src="path/to/report-icon.svg" alt="Report Icon" /></td>
                                 </tr>
                             ))}

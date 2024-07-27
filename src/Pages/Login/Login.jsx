@@ -12,7 +12,7 @@ function Login() {
   const navigate = useNavigate();
 
   const gotoregistration = () => {
-    navigate('/');
+    navigate('/registration');
   }
 
   // const handleChange = (e) => {
@@ -50,11 +50,11 @@ function Login() {
           <h3 className="login-heading">Login</h3>
           <form className="login-form" onSubmit={(e) => e.preventDefault()}>
             <input className="login-inputs email-input"  type="email" name="user_Id" placeholder="Email id" onChange={e => setuserId(e.target.value)}/>
-            <input className="login-inputs" type="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
+            <input className="login-inputs passwor_input" type="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
             <select required name="role"   onChange={e => setRole(e.target.value)}>
-                <option value="">Select role</option>
-                  <option value="Admin">Admin</option>
-                  <option value="Employee">Employee</option>
+                {/* <option className="options" value="">Select role</option> */}
+                  <option className="options" value="Admin">Admin</option>
+                  <option className="options" value="Employee">Employee</option>
                 </select>
             <a id="goto-registration" onClick={gotoregistration}>Create an account</a>
           </form>

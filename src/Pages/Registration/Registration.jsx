@@ -56,9 +56,9 @@ const handleSubmit = async (e) => {
                 <input className="registration-inputs" type="text"  name="name" placeholder="Name" value={formData.name} onChange={handleChange} required/>
                 <input className="registration-inputs" type="email"  name="email" placeholder="Email id"required  value={formData.email} onChange={handleChange}/>
                 <select required name="role"   value={formData.role} onChange={handleChange}>
-                <option value="">Select role</option>
-                  <option value="Admin">Admin</option>
-                  <option value="Employee">Employee</option>
+                {/* <option className="options" value="">Select role</option> */}
+                  <option className="options" value="Admin">Admin</option>
+                  <option className="options" value="Employee">Employee</option>
                 </select>
                 <input className="registration-inputs" type="password" name="password" placeholder="New passsword"  value={formData.password} onChange={handleChange}  required/>
               

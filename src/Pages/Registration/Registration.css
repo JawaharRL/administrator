@@ -1,34 +1,55 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.registraion-page{
+
+.registraion-page {
     display: flex;
     height: 100vh;
+    animation: fadeIn 1s ease-in-out;
 }
-.registration-form>*{
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.registration-form>* {
     all: unset;
     border-bottom: 1px solid #F5FDFF;
     padding: 20px 0px 5px;
     margin-bottom: 10px;
-    /* width:20vw; */
-    width:clamp(200px,24vw, 280px);
+    width: clamp(200px, 24vw, 280px);
     color: #F5FDFF;
+    transition: border-color 0.3s ease, color 0.3s ease;
 }
 
-.registration-form{
+.registration-form>*:focus {
+    border-color: #00B4DB;
+    font-size: large;
+}
+
+.registration-form {
     display: flex;
     flex-direction: column;
 }
-
-.registration-inputs::placeholder{
+/* input:-webkit-autofill {
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    box-shadow: 0 0 0px 1000px transparent inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+} */
+.options{
+    color: #00191F;
+}
+.registration-inputs::placeholder {
     color: #F5FDFF;
     opacity: 0.5;
-    font-size: clamp(0.8rem,2vw,1.1rem);
+    font-size: clamp(0.8rem, 2vw, 1.1rem);
 }
 
-.registration-button{
+.registration-button {
     all: unset;
     cursor: pointer;
     text-align: center;
@@ -36,29 +57,47 @@
     color: #00191F;
     background-color: #F5FDFF;
     padding: 8px 50px;
-    box-shadow: -3px 2px 6.6px 0px rgba(0, 0, 0, 0.10)hsla(192, 100%, 6%, 1);
+    box-shadow: -3px 2px 6.6px 0px rgba(0, 0, 0, 0.10);
     margin-top: 30px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.registration-heading{
-    text-align:center ;
+.registration-button:hover {
+    transform: translateY(-3px);
+}
+
+.registration-heading {
+    text-align: center;
     color: #F5FDFF;
-    margin-bottom: clamp(10px,5vw,20px);
-    font-size: clamp(1rem,5vw,1.75rem);
+    margin-bottom: clamp(10px, 5vw, 20px);
+    font-size: clamp(1rem, 5vw, 1.75rem);
 }
-.registration-container{
 
-align-items: center;
-border-radius: 30px;
-background: linear-gradient(143deg, #00B4DB 1.14%, #0083B0 96.6%);
-box-shadow: -10px 13px 54.9px 0px rgba(0, 0, 0, 0.25);
-width:fit-content;
-padding: clamp(30px,9vw,60px);
-display: flex;
-flex-direction: column;
-margin: auto;
+.registration-container {
+    align-items: center;
+    border-radius: 30px;
+    background: linear-gradient(143deg, #00B4DB 1.14%, #0083B0 96.6%);
+    box-shadow: -10px 13px 54.9px 0px rgba(0, 0, 0, 0.25);
+    width: fit-content;
+    padding: clamp(30px, 9vw, 60px);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    animation: slideIn 0.5s ease-in-out;
 }
-#goto-login{
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#goto-login {
     all: unset;
     cursor: pointer;
     color: #F5FDFF;
@@ -66,5 +105,11 @@ margin: auto;
     display: flex;
     justify-content: end;
     padding: 0.75rem 0rem 0rem;
-    font-size: clamp(0.5rem,2vw,0.75rem);
+    font-size: clamp(0.5rem, 2vw, 0.75rem);
+    transition: color 0.3s ease;
+}
+
+#goto-login:hover {
+    
+    color: #00B4DB;
 }

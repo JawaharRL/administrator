@@ -1,63 +1,87 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.login-page{
+
+.login-page {
     display: flex;
     height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: #f0f4f8; /* Add a background color */
+    animation: fadeIn 1s ease-in-out;
 }
-.login-form>*{
+
+
+.login-container {
+    align-items: center;
+    border-radius: 30px;
+    background: linear-gradient(143deg, #00B4DB 1.14%, #0083B0 96.6%);
+    box-shadow: -10px 13px 54.9px 0px rgba(0, 0, 0, 0.25);
+    width: fit-content;
+    padding: clamp(30px, 9vw, 60px);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    animation: slideIn 0.5s ease-out;
+}
+
+.login-form > * {
     all: unset;
     border-bottom: 1px solid #F5FDFF;
     padding: 20px 0px 5px;
-    width:clamp(200px,24vw, 280px);
+    width: clamp(200px, 24vw, 280px);
     color: #F5FDFF;
+    transition: border-color 0.3s, color 0.3s;
 }
-.email-input{
-    margin-bottom: 30px;
+
+.login-form > *:focus {
+    border-color: #00B4DB;
+    font-size: large;
 }
-.login-form{
+
+.email-input, .passwor_input {
+    margin-bottom: 10px;
+}
+
+.login-form {
     display: flex;
     flex-direction: column;
 }
 
-.login-inputs::placeholder{
+.login-inputs::placeholder {
     color: #F5FDFF;
     opacity: 0.5;
-    font-size: clamp(0.8rem,2vw,1.1rem);
+    font-size: clamp(0.8rem, 2vw, 1.1rem);
 }
 
-.login-button{
+.login-button {
     all: unset;
     cursor: pointer;
     border-radius: 20px;
     color: #00191F;
     background-color: #F5FDFF;
     padding: 8px 50px;
-    box-shadow: -3px 2px 6.6px 0px rgba(0, 0, 0, 0.10)hsla(192, 100%, 6%, 1);
+    box-shadow: -3px 2px 6.6px 0px rgba(0, 0, 0, 0.10);
     margin-top: 50px;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.login-heading{
-    text-align:center ;
+.login-button:hover {
+    /* background-color: #00B4DB; */
+    transform: translateY(-3px);
+}
+
+.login-heading {
+    text-align: center;
     color: #F5FDFF;
-    margin-bottom: clamp(10px,5vw,25px);
-    font-size: clamp(1rem,5vw,1.75rem);
+    margin-bottom: clamp(10px, 5vw, 25px);
+    font-size: clamp(1rem, 5vw, 1.75rem);
+    animation: fadeIn 1s ease-in-out;
 }
-.login-container{
 
-align-items: center;
-border-radius: 30px;
-background: linear-gradient(143deg, #00B4DB 1.14%, #0083B0 96.6%);
-box-shadow: -10px 13px 54.9px 0px rgba(0, 0, 0, 0.25);
-width:fit-content;
-padding: clamp(30px,9vw,60px);
-display: flex;
-flex-direction: column;
-margin: auto;
-}
-#goto-registration{
+#goto-registration {
     all: unset;
     cursor: pointer;
     color: #F5FDFF;
@@ -65,5 +89,31 @@ margin: auto;
     display: flex;
     justify-content: end;
     padding: 0.75rem 0rem 0rem;
-    font-size: clamp(0.5rem,1vw,1rem);
+    font-size: clamp(0.5rem, 1vw, 1rem);
+    transition: color 0.3s;
+}
+
+#goto-registration:hover {
+    color: #00B4DB;
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
