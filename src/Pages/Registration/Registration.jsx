@@ -10,7 +10,7 @@ function Registration() {
   const navigate= useNavigate();
 
 const gotologin =()=>{
-  navigate('/Login')
+  navigate('/')
 }
 
 const [formData, setFormData] = useState({
@@ -35,7 +35,7 @@ const handleSubmit = async (e) => {
     toast.success('Registration successful!');
     const response = await axios.post('http://localhost:8080/api/employees', formData);
     toast.success('Registration successful!');
-    navigate('/Login');
+    navigate('/');
     console.log('hi')
     console.log(response)
   } catch (error) {

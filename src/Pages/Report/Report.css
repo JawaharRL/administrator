@@ -1,0 +1,57 @@
+.body-container-report{
+     /* padding: 0px clamp(10px,5vw,30px); */
+     display: flex;
+     margin-top: 30px;
+     display: flex;
+     gap: 30px;
+}
+
+.employee-detail{
+    display: flex;
+    margin-top: 30px;
+    /* margin-left: clamp(100px,15vw,300px); */
+    justify-content: center;
+    align-items: center;
+}
+#profileicon{   
+    width: 200px;
+    height: 120px;
+}
+
+#editbtn{
+    display: flex;
+width: clamp(100px,15vw,250px);
+padding: 10px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+    border-radius: 10px;
+background: #00B4DB;
+box-shadow: -3px 2px 6.6px 0px rgba(0, 0, 0, 0.10);
+
+}
+#closebtn{
+    border-radius: 10px;
+    border: 1px solid #000;
+    box-shadow: -3px 2px 6.6px 0px rgba(0, 0, 0, 0.10);display: flex;
+    width: clamp(80px,15vw,200px);
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    /* margin-top: 20px;
+    margin-left: clamp(10px,15vw,260px); */
+    gap: 20px;
+}
+#todaytimelog{
+    margin-top: 40px;
+    margin-left: 80px;
+}
+.employee-repot{
+    margin-top: 20px;
+    margin-left: 80px;
+}

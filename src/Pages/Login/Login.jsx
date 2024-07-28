@@ -14,7 +14,11 @@ function Login() {
   const gotoregistration = () => {
     navigate('/registration');
   }
+  const loginsubmit = () => {
+    navigate('/dashboard');
+  }
 
+  
   // const handleChange = (e) => {
   //   setFormData({
   //     ...formData,
@@ -23,24 +27,24 @@ function Login() {
   // };
   
 
-  const loginsubmit = async () => {
-    try {
-        const response = await axios.post('http://localhost:8080/api/authentication/authenticate', {
-            userId: user_id,
-            role,
-            password
-        });
+//   const loginsubmit = async () => {
+//     try {
+//         const response = await axios.post('http://localhost:8080/api/authentication/authenticate', {
+//             userId: user_id,
+//             role,
+//             password
+//         });
 
-        if (response.status === 200) {
-            toast.success(response.data.message);
-            navigate('/dashboard');
-        } else {
-            toast.error("Invalid credentials, please try again.");
-        }
-    } catch (error) {
-        toast.error(error.response?.data || "An error occurred while logging in. Please try again.");
-    }
-};
+//         if (response.status === 200) {
+//             toast.success(response.data.message);
+//             navigate('/dashboard');
+//         } else {
+//             toast.error("Invalid credentials, please try again.");
+//         }
+//     } catch (error) {
+//         toast.error(error.response?.data || "An error occurred while logging in. Please try again.");
+//     }
+// };
 
 
   return (

@@ -1,36 +1,25 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Dashboard.css';
+import './Report.css';
 import axios from 'axios';
 import expand_icon from '../../Assets/arrow-right.svg';
 import collapse_icon from '../../Assets/arrow-left.svg';
 import employee_icon from '../../Assets/employee.svg';
+import profile_icon from '../../Assets/profile.svg';
 import eye_icon from '../../Assets/eye.svg';
 
-import profile_icon from '../../Assets/profile.svg';
-
-function Dashboard() {
-    const navigate = useNavigate();
-    const [open, setOpen] = useState(false);
+function Report() {
     const profileRef = useRef(null);
     const profileIconRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
-    const [employees, setEmployees] = useState([]);
-
-    // const navItems = ["Employee", "Report"];
-    const navItems = [
-        { name: 'Employee', icon: employee_icon }
-      ];
-    
+    const [open, setOpen] = useState(false);
+    const navigate=useNavigate();
     const Logout = () => {
         navigate('/');
     };
-
-
-    const viewreport=()=>{
-      navigate('/report')
-    }
-
+    const closereport = () => {
+        navigate('/dashboard');
+    };
     const handleClickOutside = (event) => {
         if (
             profileRef.current &&
@@ -49,12 +38,13 @@ function Dashboard() {
         };
     }, []);
 
-
-   
-
-    return (
-        <div>
-            <div className="navbar">
+    const navItems = [
+        { name: 'Employee', icon: employee_icon }
+      ];
+  return (
+    
+    <div>
+           <div className="navbar">
                 <h3 id="logo_part_1">
                     Organization <br /><span id="logo_part_2">Logo</span>
                 </h3>
@@ -74,29 +64,8 @@ function Dashboard() {
                     </div>
                 )}
             </div>
-           
-
-            {/* <div className="body-container">
-      <section
-        className={`side-menu ${isHovered ? 'open' : 'collapsed'}`}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <div className="employee-details">
-          <div className="icon_with_text selected"> 
-            <img id="employee-icon" src={employee_icon} alt="Employee" />
-            <span id="icon_text">Employee Details</span>
-          </div>
-          <div className="icon_with_text "> 
-            <img id="employee-icon" src={employee_icon} alt="Employee" />
-            <span id="icon_text">Employee Details</span>
-          </div>
-
-        </div>
-      </section>
-    </div> */}
-<div className="body-container-report">
-<section className="page">
+            <div className="body-container">
+        <section className="page">
       <aside className={`sidebar ${isOpen ? "open" : ""}`}>
         <header>
           <button
@@ -127,49 +96,51 @@ function Dashboard() {
         </nav>
       </aside>
     </section>
+  
 
-          <div className="table">
-          <table className="employee-table">
+          <div>
+
+            <div className="employee-detail">
+                <div id="employeeimg">
+                    <img id="profileicon" src={profile_icon} alt="" />
+                </div>
+                <div>
+                    <h2>Jawahar</h2>
+                    <p>Designer</p>
+                    <p>203</p>
+                </div>
+            </div>
+            <div className="buttons">
+              <button id="editbtn">Edit profile</button>
+              <button id="closebtn" onClick={closereport}>Close</button>
+            </div>
+
+            <h2 id="todaytimelog">Today's time log</h2>
+
+
+            <table className="employee-repot">
                         <thead>
                             <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Role</th>
-                                <th>Check-in</th>
-                                <th>Check-out</th>
-                                <th>Report</th>
+                                <th>Work time</th>
+                                <th>Break time</th>
+                                <th>over time</th>
                             </tr>
                         </thead>
                         <tbody>
                             
                                 <tr>
-                                    <td>01</td>
-                                    <td>Jawahar</td>
-                                    <td>Designer</td>
-                                    <td>9.00</td>
-                                    <td>5.00</td>
-                                    <td><img onClick={viewreport} src={eye_icon} alt="Report Icon" /></td>
+                                    <td>9.00AM-1.00pm</td>
+                                    <td>1.00pm-2.30pm</td>
+                                    <td>5.00pm-6.30pm</td>
                                 </tr>
                             
                         </tbody>
-                        <tbody>
-                            {employees.map(employee => (
-                                <tr key={employee.id}>
-                                    <td>{employee.name}</td>
-                                    <td>{employee.role}</td>
-                                    <td>{employee.check_in}</td>
-                                    <td>{employee.check_out}</td>
-                                    <td>{employee.report}</td>
-                                    <td><img src="path/to/report-icon.svg" alt="Report Icon" /></td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                        </table>
+          </div>
           </div>
 
-          </div>
-        </div>
-    );
+    </div>
+  )
 }
 
-export default Dashboard;
+export default Report
